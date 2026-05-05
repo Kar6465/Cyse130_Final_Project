@@ -1,3 +1,8 @@
+
+from engine import state
+from systems.inventory import add_item
+
+
 def prison_cell():
     return {
         'text': 'You wake up in a prison cell beneath Ashfall Keep. A distant explosion shakes the walls. The guard lies dead outside. You find a Rusty Key and a note: "Trust no one. The throne is not what it seems."',
@@ -61,7 +66,9 @@ def ending_betrayers_rise():
     }
 
 #PATH 2 SCENES GO HERE
-def war_room():
+def war_room(state):
+    add_item('Ancient Code Scroll', state)
+    add_item('Secret Map', state)
     return {
         'text': 'You descend into the War Room. Maps cover every wall. A glowing terminal sits in the corner. A robed woman steps out of the shadows. "You move carefully for someone in a burning castle. Smart. That terminal holds secrets older than this kingdom. I have been trying to crack it for years." She hands you a map and a scroll. "The scroll has hints. The rest is up to you."',
         'choices': [
