@@ -1,9 +1,9 @@
-
-from engine import state
 from systems.inventory import add_item
+from content.npcs import ser_kael, lady_elira, varyn_whisperer, mira_healer, the_warden
 
 
-def prison_cell():
+def prison_cell(state):
+    add_item('Rusty Key', state)
     return {
         'text': 'You wake up in a prison cell beneath Ashfall Keep. A distant explosion shakes the walls. The guard lies dead outside. You find a Rusty Key and a note: "Trust no one. The throne is not what it seems."',
         'choices': [
@@ -22,8 +22,10 @@ def castle_halls():
         ]
     }
 #PATH 1 SCENES GO HERE
-def great_hall():
-    return {'text': 'The Great Hall looms above you as you walk in. You see a man standing in the center of the hall, looking you up and down. This was, as you recognized, Ser Kael',
+def great_hall(state):
+    add_item('Royal Sigil Ring', state)
+    ser_kael()
+    return {'text': 'The Great Hall looms above you as you walk in. You see a man standing in the center of the hall, looking you up and down. This was, as you recognized, Ser Kael. He eyes the sigil ring on your finger and nods.',
             'choices': [
             {'text': 'Prove Loyalty To Ser Kael', 'next': 'royal_chapel'},
             {'text': 'Refuse and Walk Away', 'next': 'castle_halls'},
@@ -31,6 +33,7 @@ def great_hall():
     }
 
 def royal_chapel():
+    lady_elira()
     return {
         'text': 'Ser Kael leads you to the Royal Chapel. Lady Elira kneels at the altar. She stands slowly as you enter, studying your face. "I have been here three days. I am the last of my family. Will you help me or not?"',
         'choices': [
@@ -69,6 +72,7 @@ def ending_betrayers_rise():
 def war_room(state):
     add_item('Ancient Code Scroll', state)
     add_item('Secret Map', state)
+    varyn_whisperer()
     return {
         'text': 'You descend into the War Room. Maps cover every wall. A glowing terminal sits in the corner. A robed woman steps out of the shadows. "You move carefully for someone in a burning castle. Smart. That terminal holds secrets older than this kingdom. I have been trying to crack it for years." She hands you a map and a scroll. "The scroll has hints. The rest is up to you."',
         'choices': [
@@ -96,7 +100,9 @@ def ending_keep_destroyed():
         'choices': []
     }
 # PATH 3 SCENES GO HERE
-def lower_tunnels():
+def lower_tunnels(state):
+    add_item('Healing Herbs', state)
+    mira_healer()
     return {
         'text': 'The tunnels are smoky and dark. Families are pressed against the stone walls, frightened and hushed. A woman moves between them, calm and steady. "Oh thank god. There are children here, elderly people, none of them asked for any of this. I know there is a way out through the eastern passage but something is blocking it. Please, will you help us?" She presses a bundle of healing herbs into your hands.',
         'choices': [
@@ -106,6 +112,7 @@ def lower_tunnels():
     }
 
 def warden_encounter():
+    the_warden()
     return {
         'text': 'A massive figure steps out of the dark. Full armor, scarred face, weapon already drawn. He looks at the crowd behind you then back at you. "Nobody goes through here. Those are my orders. I don not care who they are or where they are going. Turn around or I put you down."',
         'choices': [

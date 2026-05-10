@@ -1,0 +1,2 @@
+2026-05-09 18:24:24 - GAME_START - Player started a new game
+2026-05-09 18:24:24 - GAME_END - Game over - last scene was prison_cell
