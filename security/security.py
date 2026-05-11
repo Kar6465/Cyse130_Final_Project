@@ -6,3 +6,4 @@ def log_event(event_type, message):
     
     with open('audit_log.txt', 'a') as f:
         f.write(entry)
+

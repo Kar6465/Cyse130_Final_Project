@@ -1,4 +1,3 @@
-from datetime import datetime
 from security.security import log_event
 
 def war_room_puzzle(state):

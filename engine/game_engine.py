@@ -36,7 +36,7 @@ def run_scene(scene_name, state):
     from systems.challenges import war_room_puzzle as puzzle_challenge, warden_combat as warden_challenge, kael_combat as kael_challenge
 
     if scene_name == 'war_room_puzzle':
-        return puzzle_challenge()
+        return puzzle_challenge(state)
     if scene_name == 'warden_combat':
         return warden_challenge(state)
     if scene_name == 'kael_combat':
