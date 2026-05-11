@@ -1,6 +1,6 @@
 # Thrones of Ashfall
 
-**Team Members:** [Add your team names here]
+**Team Members:** Sriteja Kasina, Kelvin Kittoe, Yousef Alquraini, Byron Brown, Srikar Dontula 
 
 ---
 
